@@ -1,0 +1,86 @@
+@font-face {
+    font-family: iransnas;
+    src: url(fonts/IRANSansWeb.wolff);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: iransnas;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #0a3c2f;
+}
+.container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    background: #0e614b;
+    padding: 40px 60px;
+}
+.container h2{
+    font-size: 1.5em;
+    color: white;
+}
+.reset{
+    padding: 7px 35px;
+    color: #267e65;
+    background: #fff;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 10px;
+}
+.reset:focus{
+    color: #fff;
+    background-color: #267e65;
+}
+.game{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+.item{
+    position: relative;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2em;
+    background: #fff;
+    transition: 0.25s;
+    transform: rotateY(180deg);
+}
+.item::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #209d7b;
+    transition: 0.25s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+.item.boxOpen{
+    transform: rotateY(0deg);
+}
+.boxOpen::after{
+    transform: rotateY(180deg);
+}
+.boxOpen::after,
+.boxMatch::after{
+    transform: rotateY(180deg);
+}
